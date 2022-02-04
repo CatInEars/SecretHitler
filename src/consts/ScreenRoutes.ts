@@ -1,0 +1,4 @@
+export const ScreenRoutes = {
+  PLAYERS_LIST_SCREEN: 'PLAYERS_LIST_SCREEN',
+  SHOW_ROLE_SCREEN: 'SHOW_ROLE_SCREEN',
+};
