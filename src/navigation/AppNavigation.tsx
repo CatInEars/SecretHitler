@@ -5,6 +5,7 @@ import {ScreenRoutes} from '../consts/ScreenRoutes';
 import {PlayersListScreen} from '../screens/PlayersListScreen';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {ShowRoleScreen} from '../screens/ShowRoleScreen';
+import {GameBoardScreen} from '../screens/GameBoardScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -19,6 +20,10 @@ export function AppNavigation() {
         <Stack.Screen
           name={ScreenRoutes.SHOW_ROLE_SCREEN}
           component={ShowRoleScreen}
+        />
+        <Stack.Screen
+          name={ScreenRoutes.GAME_BOARD_SCREEN}
+          component={GameBoardScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>

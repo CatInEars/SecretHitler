@@ -9,11 +9,7 @@ import store from '../store';
 import {NavigateType} from '../types/navigations';
 
 export function PlayersListScreen() {
-  const {
-    navigate,
-  }: {
-    navigate: NavigateType;
-  } = useNavigation();
+  const {navigate}: {navigate: NavigateType} = useNavigation();
   const [playersList, setPlayersList] = useState<{[propName: string]: string}>(
     {},
   );

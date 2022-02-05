@@ -1,11 +1,16 @@
+import {useNavigation} from '@react-navigation/native';
 import React, {useEffect, useState} from 'react';
-import {Alert, StyleSheet, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import {AppText} from '../components/AppText';
 import {BaseButton} from '../components/BaseButton';
 import {Colors} from '../consts/Colors';
+import {ScreenRoutes} from '../consts/ScreenRoutes';
 import store from '../store';
+import {NavigateType} from '../types/navigations';
 
 export function ShowRoleScreen() {
+  const {navigate}: {navigate: NavigateType} = useNavigation();
+
   const [nowPlayerName, changeNowPlayerName] = useState('');
   const [nowPartRole, changeNowPartRole] = useState('');
   const [nowPersonRole, changeNowPersonRole] = useState('');
@@ -27,7 +32,7 @@ export function ShowRoleScreen() {
   };
 
   const handleStartGame = () => {
-    Alert.alert('Игры не будет, хи-хи, ха-ха!');
+    navigate(ScreenRoutes.GAME_BOARD_SCREEN);
   };
 
   return (
