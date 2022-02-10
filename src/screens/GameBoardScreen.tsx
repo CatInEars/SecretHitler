@@ -3,17 +3,14 @@ import {observer} from 'mobx-react-lite';
 import {View, StyleSheet} from 'react-native';
 
 import {BaseButton} from '../components/BaseButton';
-import {Cards} from '../consts/Cards';
 import {Colors} from '../consts/Colors';
 import store from '../store';
+import {CardType} from '../types/cardType';
 
 function gameBoardScreen() {
-  const handleAddliberialCard = () => {
-    store.boardStore.addCard(Cards.LIBERIAL);
-  };
-
-  const handleAddFascistCard = () => {
-    store.boardStore.addCard(Cards.FASCIST);
+  const handleGetCards = () => {
+    // const cards: CardType[] = store.cardsStore.getCards();
+    // console.log(cards);
   };
 
   return (
@@ -46,12 +43,7 @@ function gameBoardScreen() {
           />
         ))}
       </View>
-      <BaseButton onPress={handleAddliberialCard}>
-        Добавить синюю карту
-      </BaseButton>
-      <BaseButton onPress={handleAddFascistCard}>
-        Добавить красную карту
-      </BaseButton>
+      <BaseButton onPress={handleGetCards}>Вытянуть 3 карты</BaseButton>
     </View>
   );
 }

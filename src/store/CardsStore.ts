@@ -17,12 +17,16 @@ export class CardStore {
     shuffle(this.cardsList);
   }
 
-  getCards() {
+  getCards(): CardType[] {
     if (this.cardsList.length >= 3) {
       return this.cardsList.splice(0, 3);
     } else {
       shuffle(this.outCardsList);
-      return [...this.cardsList.splice(0, 2), this.outCardsList.slice(0, 1)];
+      return [...this.cardsList.splice(0, 2), ...this.outCardsList.slice(0, 1)];
     }
+  }
+
+  dropCard(card: CardType) {
+    this.outCardsList.push(card);
   }
 }

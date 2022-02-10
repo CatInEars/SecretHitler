@@ -1,11 +1,13 @@
 import {useNavigation} from '@react-navigation/native';
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {StyleSheet, TextInput, View} from 'react-native';
 
 import {AppText} from '../components/AppText';
 import {BaseButton} from '../components/BaseButton';
 import {Colors} from '../consts/Colors';
 import {ScreenRoutes} from '../consts/ScreenRoutes';
+import {convertHeight, convertWidth} from '../helpers/dimensions';
+import {getDesiredLengthArr} from '../helpers/getDesiredLengthArr';
 import store from '../store';
 import {NavigateType} from '../types/navigations';
 
@@ -14,15 +16,6 @@ export function PlayersListScreen() {
   const [playersList, setPlayersList] = useState<{[propName: string]: string}>(
     {},
   );
-  const [fakeArray, setFakeArray] = useState<number[]>([]);
-
-  useEffect(() => {
-    const arr = [];
-    for (let i = 0; i < 10; i++) {
-      arr.push(i + 1);
-    }
-    setFakeArray(arr);
-  }, []);
 
   const handleSubmit = () => {
     store.playersStore.setPlayersList(Object.values(playersList));
@@ -32,9 +25,8 @@ export function PlayersListScreen() {
   return (
     <View style={styles.container}>
       <AppText style={styles.title}>Введите имена игроков</AppText>
-
-      <View style={styles.inputContainer}>
-        {fakeArray.map(item => {
+      <View style={styles.inputsContainer}>
+        {getDesiredLengthArr(10).map(item => {
           const key = `player_${item}`;
           const handleTextChange = (newName: string) => {
             setPlayersList({...playersList, [key]: newName});
@@ -50,9 +42,10 @@ export function PlayersListScreen() {
             />
           );
         })}
+        <BaseButton style={styles.button} onPress={handleSubmit}>
+          Начать игру
+        </BaseButton>
       </View>
-
-      <BaseButton onPress={handleSubmit}>Начать игру</BaseButton>
     </View>
   );
 }
@@ -61,7 +54,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: Colors.red,
-    padding: 18,
+    paddingVertical: convertHeight(24),
   },
   title: {
     color: Colors.white,
@@ -69,14 +62,20 @@ const styles = StyleSheet.create({
     textTransform: 'uppercase',
     alignSelf: 'center',
   },
-  inputContainer: {
+  inputsContainer: {
     flexWrap: 'wrap',
     flexDirection: 'row',
-    justifyContent: 'center',
+    marginTop: convertHeight(60),
   },
   input: {
     backgroundColor: Colors.lightgray,
-    margin: 10,
-    width: 230,
+    marginHorizontal: convertWidth(8),
+    marginVertical: convertHeight(8),
+    width: convertWidth(120),
+    height: convertHeight(80),
+  },
+  button: {
+    marginHorizontal: convertWidth(8),
+    marginVertical: convertHeight(8),
   },
 });
