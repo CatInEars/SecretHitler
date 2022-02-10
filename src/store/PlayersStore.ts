@@ -1,4 +1,5 @@
 import {makeAutoObservable, runInAction} from 'mobx';
+
 import {PartRole, PersonRole} from '../consts/RoleNames';
 import {shuffle} from '../helpers/shuffle';
 import {IPlayer, PartRoleType, PersonRoleType} from '../types/playerType';

@@ -1,4 +1,5 @@
 import {makeAutoObservable} from 'mobx';
+
 import {Cards} from '../consts/Cards';
 import {shuffle} from '../helpers/shuffle';
 import {CardType} from '../types/cardType';

@@ -1,9 +1,9 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 import {ScreenRoutes} from '../consts/ScreenRoutes';
 import {PlayersListScreen} from '../screens/PlayersListScreen';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {ShowRoleScreen} from '../screens/ShowRoleScreen';
 import {GameBoardScreen} from '../screens/GameBoardScreen';
 

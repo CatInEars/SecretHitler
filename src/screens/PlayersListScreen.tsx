@@ -1,6 +1,7 @@
 import {useNavigation} from '@react-navigation/native';
 import React, {useEffect, useState} from 'react';
 import {StyleSheet, TextInput, View} from 'react-native';
+
 import {AppText} from '../components/AppText';
 import {BaseButton} from '../components/BaseButton';
 import {Colors} from '../consts/Colors';

@@ -1,4 +1,5 @@
 import {makeAutoObservable, runInAction} from 'mobx';
+
 import {Cards} from '../consts/Cards';
 import {Effects} from '../consts/Effects';
 import {IBoardCase} from '../types/boardType';

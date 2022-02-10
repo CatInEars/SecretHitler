@@ -1,7 +1,9 @@
 import React from 'react';
 import {StyleSheet, TouchableOpacity, ViewStyle} from 'react-native';
-import {Colors} from '../consts/Colors';
+
 import {AppText} from './AppText';
+
+import {Colors} from '../consts/Colors';
 
 interface IBaseButtonProps {
   onPress: () => void;

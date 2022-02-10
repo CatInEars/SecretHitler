@@ -1,6 +1,7 @@
-import {observer} from 'mobx-react-lite';
 import React from 'react';
+import {observer} from 'mobx-react-lite';
 import {View, StyleSheet} from 'react-native';
+
 import {BaseButton} from '../components/BaseButton';
 import {Cards} from '../consts/Cards';
 import {Colors} from '../consts/Colors';
